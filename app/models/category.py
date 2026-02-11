@@ -1,0 +1,14 @@
+import enum
+
+
+class ExpenseCategory(str, enum.Enum):
+    FOOD = "food"
+    TRAVEL = "travel"
+    SHOPPING = "shopping"
+    BILLS = "bills"
+    ENTERTAINMENT = "entertainment"
+    HEALTH = "health"
+    EDUCATION = "education"
+    RENT = "rent"
+    SUBSCRIPTION = "subscription"
+    OTHER = "other"
