@@ -1,5 +1,7 @@
 import enum
 
+from sqlalchemy import Enum
+
 
 class ExpenseCategory(str, enum.Enum):
     FOOD = "food"
@@ -12,3 +14,9 @@ class ExpenseCategory(str, enum.Enum):
     RENT = "rent"
     SUBSCRIPTION = "subscription"
     OTHER = "other"
+
+
+# expense_category_enum = Enum(
+#     ExpenseCategory,
+#     name="expensecategory",
+# )
