@@ -22,8 +22,9 @@ class UserDelete(BaseModel):
 
 
 class UserResponse(User):
-    user_id : str
-    
+    user_id: int
+
+
 class Token(BaseModel):
-    access_token:str
-    token_type:str
+    access_token: str
+    token_type: str
