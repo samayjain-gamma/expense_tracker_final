@@ -1,7 +1,7 @@
 ## Expense Tracker
 Track expenses, auto-categorize, budget alerts, multi-currency, PDF reports.
 
-**Stack:** PostgreSQL | R2 | pandas, scikit-learn, forex-python, ReportLab
+**Stack:** PostgreSQL | R2 | pandas, scikit-learn, forex-python, ReportLab,  
 
 **Steps:**
 1. FastAPI + SQLAlchemy + alembic
