@@ -14,9 +14,3 @@ class ExpenseCategory(str, enum.Enum):
     RENT = "rent"
     SUBSCRIPTION = "subscription"
     OTHER = "other"
-
-
-# expense_category_enum = Enum(
-#     ExpenseCategory,
-#     name="expensecategory",
-# )
