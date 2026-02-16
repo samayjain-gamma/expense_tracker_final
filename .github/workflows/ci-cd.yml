@@ -50,7 +50,7 @@ jobs:
           docker build -t myapp:latest .
 
       - name: List docker images
-        run: docker image
+        run: docker images
 
       - name: Get commit message
         id: get_commit
