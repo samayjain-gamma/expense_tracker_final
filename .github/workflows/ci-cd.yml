@@ -54,6 +54,9 @@ jobs:
         run: |
           echo "COMMIT_MSG=$(git log -1 --pretty=%s | tr ' /' '--')" >> $GITHUB_ENV
 
+      - name: Create artifacts directory
+        run: mkdir -p artifacts
+
       - name: Save docker image to tar
         run: docker save myapp:latest -o artifacts/${COMMIT_MSG}.tar
 
