@@ -1,11 +1,9 @@
-import asyncio
 import uuid
-from datetime import date, datetime, timezone
+from datetime import date
 
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 from app.api.deps import get_db
 from app.core.security import hash_password

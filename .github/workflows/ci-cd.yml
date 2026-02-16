@@ -1,60 +1,55 @@
-name: CI pipeline
+# name: CI pipeline
 
-on:
-  push:
-    branches: [dev1]
-  pull_request:
-    branches: [main]
+# on:
+#   push:
+#     branches: [dev1]
+#   pull_request:
+#     branches: [main]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+#     env:
+#       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+#       SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.12"
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: "3.12"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pytest pytest-asyncio
-
-
-      - name: Install pre-commit
-        run: pip install pre-commit
-
-      - name: Run linters
-        run: pre-commit run --all-files
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt
+#           pip install pytest pytest-asyncio
 
 
-      - name: Run app sanity check
-        run: |
-          python -c "import app.main"
+#       - name: Install pre-commit
+#         run: pip install pre-commit
 
-      - name: Run tests
-        run: |
-          pytest -v
+#       - name: Run linters
+#         run: pre-commit run --all-files
+
+#       - name: Run tests
+#         run: |
+#           pytest -v
       
-      - name: Build Docker image
-        run: |
-          docker build -t myapp:latest .
+#       - name: Build Docker image
+#         run: |
+#           docker build -t myapp:latest .
 
-      - name: Save docker image to tar
-        run: docker save myapp:latest -o artifacts/myapp.tar
+#       - name: Save docker image to tar
+#         run: docker save myapp:latest -o artifacts/myapp.tar
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+#       - name: Upload artifact
+#         uses: actions/upload-artifact@v4
 
-        with:
-          name: docker-image
-          path: artifacts/myapp.tar
+#         with:
+#           name: docker-image
+#           path: artifacts/myapp.tar

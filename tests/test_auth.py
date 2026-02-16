@@ -1,14 +1,10 @@
 import pytest
-from httpx import ASGITransport, AsyncClient
-
-from app.core.security import hash_password, verify_password
-from app.db.base_class import Base
-from app.main import app
-from app.models.user import User
+from httpx import AsyncClient
 
 
 @pytest.mark.anyio
 async def test_register_user(client: AsyncClient, async_session):
+
     payload = {
         "email": "charlie@test.com",
         "username": "charlie",

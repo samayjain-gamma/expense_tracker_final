@@ -4,14 +4,13 @@ from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy import and_, delete, select
-from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
 from app.models.category import ExpenseCategory
 from app.models.expense import Expense
 from app.models.user import User
-from app.schemas.expense import ExpenseCreate, ExpenseDelete, ExpenseResponse
+from app.schemas.expense import ExpenseCreate, ExpenseResponse
 
 # from uuid import UUID
 router = APIRouter()
