@@ -49,23 +49,12 @@ jobs:
         run: |
           docker build -t myapp:latest .
 
-      - name: List docker images
-        run: docker images
-
-      - name: Get commit message
-        id: get_commit
-        run: |
-          echo "COMMIT_MSG=$(git log -1 --pretty=%s | tr ' /' '--')" >> $GITHUB_ENV
-
-      - name: Create artifacts directory
-        run: mkdir -p artifacts
-
       - name: Save docker image to tar
-        run: docker save myapp:latest -o artifacts/${COMMIT_MSG}.tar
+        run: docker save myapp:latest -o artifacts/myapp.tar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
 
         with:
           name: docker-image
-          path: artifacts/${COMMIT_MSG}.tar
+          path: artifacts/myapp.tar
