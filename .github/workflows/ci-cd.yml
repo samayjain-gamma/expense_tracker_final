@@ -49,6 +49,9 @@ jobs:
         run: |
           docker build -t myapp:latest .
 
+      - name: List docker images
+        run: docker image
+
       - name: Get commit message
         id: get_commit
         run: |
