@@ -39,7 +39,7 @@ jobs:
         run: pre-commit run --all-files
 
       - name: Run tests
-        run: pytest -v --cov=app --cov-report=xml
+        run: pytest -v
 
       - name: Create artifacts folder
         run: mkdir -p artifacts
